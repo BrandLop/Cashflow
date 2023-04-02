@@ -5,7 +5,7 @@
       <HeaderHome />
     </template>
     <template #resume>
-      <IndexHome />
+      <IndexHome :label="'Ahorro Total'" :total-amount="100000" :amount="amount" />
     </template>
     <template #movements>
       <Movements />
@@ -25,6 +25,11 @@ export default {
     HeaderHome,
     IndexHome,
     Movements
+  },
+  data() {
+    return {
+      amount: null
+    }
   }
 }
 </script>
