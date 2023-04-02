@@ -2,13 +2,13 @@
 <template>
   <Layout>
     <template #header>
-      <HeaderHome/>
+      <HeaderHome />
     </template>
     <template #resume>
-      <IndexHome/>
+      <IndexHome />
     </template>
     <template #movements>
-      <Movements/>
+      <Movements />
     </template>
   </Layout>
 </template>

@@ -1,3 +1,3 @@
 <template>
-    <main>Resume</main>
+  <main>Resume</main>
 </template>
