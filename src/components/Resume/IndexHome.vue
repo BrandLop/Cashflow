@@ -1,11 +1,22 @@
 <template>
   <main>
     <p>{{ labelVisual }}</p>
-    <h1>{{ amountVisual }}</h1>
+    <h1>{{ amountCurrency }}</h1>
+    <div class="chart">
+      <slot name="chart"></slot>
+    </div>
+    <div class="action">
+      <slot name="action"></slot>
+    </div>
   </main>
 </template>
 
 <script>
+const currencyFormatter = new Intl.NumberFormat('es-MX', {
+  style: 'currency',
+  currency: 'MXN'
+})
+
 export default {
   props: {
     totaLabel: {
@@ -28,6 +39,9 @@ export default {
     },
     labelVisual() {
       return this.label !== null ? this.label : this.totaLabel
+    },
+    amountCurrency() {
+      return currencyFormatter.format(this.amountVisual)
     }
   }
 }
@@ -53,7 +67,7 @@ h1 {
   color: var(--brand-green);
 }
 
-.graphic {
+.chart {
   display: flex;
   justify-content: center;
   align-items: center;
