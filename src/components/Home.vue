@@ -5,7 +5,19 @@
       <HeaderHome />
     </template>
     <template #resume>
-      <IndexHome :total-label="'Ahorro Total'" :label="label" :total-amount="100000" :amount="amount" />
+      <IndexHome 
+        :total-label="'Ahorro Total'" 
+        :label="label" 
+        :total-amount="100000" 
+        :amount="amount" 
+      >
+        <template #chart>
+          chart
+        </template>
+        <template #action>
+          action
+        </template>
+      </IndexHome>
     </template>
     <template #movements>
       <Movements />
