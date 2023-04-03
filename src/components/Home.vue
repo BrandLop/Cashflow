@@ -8,7 +8,7 @@
       <IndexHome
         :total-label="'Ahorro Total'"
         :label="label"
-        :total-amount="100000"
+        :total-amount="totalAmount"
         :amount="amount"
       >
         <template #chart> <ChartResume :amounts="amounts" /> </template>
@@ -42,78 +42,7 @@ export default {
     return {
       amount: null,
       label: null,
-      movements: [
-        {
-          id: 0,
-          title: 'Movimiento 1',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: 100,
-          time: new Date('28 Mar 2023')
-        },
-        {
-          id: 1,
-          title: 'Movimiento 2',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: 200,
-          time: new Date('27 Mar 2023')
-        },
-        {
-          id: 2,
-          title: 'Movimiento 3',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: 500,
-          time: new Date('26 Mar 2023')
-        },
-        {
-          id: 3,
-          title: 'Movimiento 4',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: 200,
-          time: new Date('25 Mar 2023')
-        },
-        {
-          id: 4,
-          title: 'Movimiento 5',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: -400,
-          time: new Date('24 Mar 2023')
-        },
-        {
-          id: 5,
-          title: 'Movimiento 6',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: -600,
-          time: new Date('23 Mar 2023')
-        },
-        {
-          id: 6,
-          title: 'Movimiento 7',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: -300,
-          time: new Date('22 Mar 2023')
-        },
-        {
-          id: 7,
-          title: 'Movimiento 8',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: 100,
-          time: new Date('21 Mar 2023')
-        },
-        {
-          id: 8,
-          title: 'Movimiento 9',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: 300,
-          time: new Date('20 Mar 2023')
-        },
-        {
-          id: 9,
-          title: 'Movimiento 10',
-          description: 'Lorem ipsum dolor sit amet',
-          amount: 500,
-          time: new Date('19 Mar 2023')
-        }
-      ]
+      movements: []
     }
   },
   computed: {
@@ -132,15 +61,34 @@ export default {
           return suma + movement
         }, 0)
       })
+    },
+    totalAmount() {
+      return this.movements.reduce((suma, m) => {
+        return suma + m.amount
+      }, 0)
+    }
+  },
+  mounted() {
+    const movements = JSON.parse(localStorage.getItem('movements'))
+    console.log(movements)
+    if (Array.isArray(movements)) {
+      this.movements = movements.map((m) => {
+        return { ...m, time: new Date(m.time) }
+      })
     }
   },
   methods: {
     create(movement) {
       this.movements.push(movement)
+      this.save()
     },
     remove(id) {
       const index = this.movements.findIndex((m) => m.id === id)
       this.movements.splice(index, 1)
+      this.save()
+    },
+    save() {
+      localStorage.setItem('movements', JSON.stringify(this.movements))
     }
   }
 }
