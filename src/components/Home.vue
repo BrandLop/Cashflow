@@ -11,7 +11,7 @@
         :total-amount="100000"
         :amount="amount"
       >
-        <template #chart> chart </template>
+        <template #chart> <ChartResume :amounts="amounts" /> </template>
         <template #action> <ActionHome /> </template>
       </IndexHome>
     </template>
@@ -27,6 +27,7 @@ import HeaderHome from './HeaderHome.vue'
 import IndexHome from './Resume/IndexResume.vue'
 import Movements from './Movements/IndexMovements.vue'
 import ActionHome from './ActionHome.vue'
+import ChartResume from './Resume/ChartResume.vue'
 
 export default {
   components: {
@@ -34,12 +35,14 @@ export default {
     HeaderHome,
     IndexHome,
     Movements,
-    ActionHome
+    ActionHome,
+    ChartResume
   },
   data() {
     return {
       amount: null,
       label: null,
+      amounts: [100, 200, 500, 200, -400, -600, -300, 0, 300, 500],
       movements: [
         {
           id: 0,
