@@ -28,8 +28,8 @@
 <script>
 import Layout from './LayoutHome.vue'
 import HeaderHome from './HeaderHome.vue'
-import IndexHome from './Resume/IndexHome.vue'
-import Movements from './Movements/MovementsHome.vue'
+import IndexHome from './Resume/IndexResume.vue'
+import Movements from './Movements/IndexMovements.vue'
 
 export default {
   components: {
