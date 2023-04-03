@@ -5,22 +5,18 @@
       <HeaderHome />
     </template>
     <template #resume>
-      <IndexHome 
-        :total-label="'Ahorro Total'" 
-        :label="label" 
-        :total-amount="100000" 
-        :amount="amount" 
+      <IndexHome
+        :total-label="'Ahorro Total'"
+        :label="label"
+        :total-amount="100000"
+        :amount="amount"
       >
-        <template #chart>
-          chart
-        </template>
-        <template #action>
-          action
-        </template>
+        <template #chart> chart </template>
+        <template #action> action </template>
       </IndexHome>
     </template>
     <template #movements>
-      <Movements />
+      <Movements :movements="movements" />
     </template>
   </Layout>
 </template>
@@ -41,7 +37,51 @@ export default {
   data() {
     return {
       amount: null,
-      label: null
+      label: null,
+      movements: [
+        {
+          id: 0,
+          title: 'Movimiento 1',
+          description: 'Loremsadd asdaas',
+          amount: 1000
+        },
+        {
+          id: 1,
+          title: 'Movimiento 2',
+          description: 'Loremsadd asdaas',
+          amount: 1000
+        },
+        {
+          id: 2,
+          title: 'Movimiento 3',
+          description: 'Loremsadd asdaas',
+          amount: 1000
+        },
+        {
+          id: 3,
+          title: 'Movimiento 4',
+          description: 'Loremsadd asdaas',
+          amount: 1000
+        },
+        {
+          id: 4,
+          title: 'Movimiento 5',
+          description: 'Loremsadd asdaas',
+          amount: 1000
+        },
+        {
+          id: 5,
+          title: 'Movimiento 6',
+          description: 'Loremsadd asdaas',
+          amount: 1000
+        },
+        {
+          id: 6,
+          title: 'Movimiento 7',
+          description: 'Loremsadd asdaas',
+          amount: 1000
+        }
+      ]
     }
   }
 }
