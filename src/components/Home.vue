@@ -42,66 +42,97 @@ export default {
     return {
       amount: null,
       label: null,
-      amounts: [100, 200, 500, 200, -400, -600, -300, 0, 300, 500],
       movements: [
         {
           id: 0,
           title: 'Movimiento 1',
-          description: 'Loremsadd asdaas',
-          amount: 1000
+          description: 'Lorem ipsum dolor sit amet',
+          amount: 100,
+          time: new Date('28 Mar 2023')
         },
         {
           id: 1,
           title: 'Movimiento 2',
-          description: 'Loremsadd asdaas',
-          amount: 1000
+          description: 'Lorem ipsum dolor sit amet',
+          amount: 200,
+          time: new Date('27 Mar 2023')
         },
         {
           id: 2,
           title: 'Movimiento 3',
-          description: 'Loremsadd asdaas',
-          amount: 1000
+          description: 'Lorem ipsum dolor sit amet',
+          amount: 500,
+          time: new Date('26 Mar 2023')
         },
         {
           id: 3,
           title: 'Movimiento 4',
-          description: 'Loremsadd asdaas',
-          amount: 1000
+          description: 'Lorem ipsum dolor sit amet',
+          amount: 200,
+          time: new Date('25 Mar 2023')
         },
         {
           id: 4,
           title: 'Movimiento 5',
-          description: 'Loremsadd asdaas',
-          amount: 1000
+          description: 'Lorem ipsum dolor sit amet',
+          amount: -400,
+          time: new Date('24 Mar 2023')
         },
         {
           id: 5,
           title: 'Movimiento 6',
-          description: 'Loremsadd asdaas',
-          amount: 1000
+          description: 'Lorem ipsum dolor sit amet',
+          amount: -600,
+          time: new Date('23 Mar 2023')
         },
         {
           id: 6,
           title: 'Movimiento 7',
-          description: 'Loremsadd asdaas',
-          amount: 1000
+          description: 'Lorem ipsum dolor sit amet',
+          amount: -300,
+          time: new Date('22 Mar 2023')
+        },
+        {
+          id: 7,
+          title: 'Movimiento 8',
+          description: 'Lorem ipsum dolor sit amet',
+          amount: 100,
+          time: new Date('21 Mar 2023')
+        },
+        {
+          id: 8,
+          title: 'Movimiento 9',
+          description: 'Lorem ipsum dolor sit amet',
+          amount: 300,
+          time: new Date('20 Mar 2023')
+        },
+        {
+          id: 9,
+          title: 'Movimiento 10',
+          description: 'Lorem ipsum dolor sit amet',
+          amount: 500,
+          time: new Date('19 Mar 2023')
         }
       ]
+    }
+  },
+  computed: {
+    amounts() {
+      const lastDays = this.movements
+        .filter((m) => {
+          const today = new Date()
+          const oldDate = today.setDate(today.getDate() - 30)
+          return m.time > oldDate
+        })
+        .map((m) => m.amount)
+
+      return lastDays.map((m, i) => {
+        const lastMovements = lastDays.slice(0, i)
+        return lastMovements.reduce((suma, movement) => {
+          return suma + movement
+        }, 0)
+      })
     }
   }
 }
 </script>
-
-<style>
-html,
-body,
-.app {
-  min-height: 100vh;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-* {
-  --brand-green: #04b500;
-  --brand-blue: #0689b0;
-}
-</style>

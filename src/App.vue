@@ -27,7 +27,7 @@ export default {
   </Suspense>
 </template>
 
-<style scoped>
+<style>
 html,
 body,
 .app {
