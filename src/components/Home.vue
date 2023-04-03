@@ -12,7 +12,7 @@
         :amount="amount"
       >
         <template #chart> chart </template>
-        <template #action> action </template>
+        <template #action> <ActionHome /> </template>
       </IndexHome>
     </template>
     <template #movements>
@@ -26,13 +26,15 @@ import Layout from './LayoutHome.vue'
 import HeaderHome from './HeaderHome.vue'
 import IndexHome from './Resume/IndexResume.vue'
 import Movements from './Movements/IndexMovements.vue'
+import ActionHome from './ActionHome.vue'
 
 export default {
   components: {
     Layout,
     HeaderHome,
     IndexHome,
-    Movements
+    Movements,
+    ActionHome
   },
   data() {
     return {
@@ -87,7 +89,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 html,
 body,
 .app {
