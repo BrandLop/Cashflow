@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { toRefs, defineProps, defineEmits } from "vue";
+import { toRefs, defineProps, defineEmits } from 'vue'
 import MovementSingle from './MovementSingle.vue'
 const props = defineProps({
   movements: {
@@ -27,7 +27,7 @@ const props = defineProps({
 
 const { movements } = toRefs(props)
 
-const emit = defineEmits(["remove"])
+const emit = defineEmits(['remove'])
 
 const remove = (id) => {
   emit('remove', id)
