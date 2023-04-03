@@ -29,7 +29,7 @@
 import Layout from './LayoutHome.vue'
 import HeaderHome from './HeaderHome.vue'
 import IndexHome from './Resume/IndexHome.vue'
-import Movements from './MovementsHome.vue'
+import Movements from './Movements/MovementsHome.vue'
 
 export default {
   components: {
