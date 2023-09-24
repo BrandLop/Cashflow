@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { ref, toRefs, defineProps, defineEmits, computed, watch } from 'vue'
+import { ref, toRefs, computed, watch } from 'vue'
 const props = defineProps({
   amounts: {
     type: Array,

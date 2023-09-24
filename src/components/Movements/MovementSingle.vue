@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { toRefs, defineProps, computed, defineEmits } from 'vue'
+import { toRefs, computed } from 'vue'
 
 const currencyFormatter = new Intl.NumberFormat('es-MX', {
   style: 'currency',

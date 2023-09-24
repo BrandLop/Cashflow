@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { toRefs, defineProps, defineEmits } from 'vue'
+import { toRefs } from 'vue'
 import MovementSingle from './MovementSingle.vue'
 const props = defineProps({
   movements: {
